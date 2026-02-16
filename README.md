@@ -216,7 +216,7 @@ skera/
 
 ## Contributing
 
-Skera is open source under AGPL-3.0. Contributions welcome:
+Skera is open source under MIT. Contributions welcome:
 
 1. **Add library signatures** — Create entries in `data/signatures/libraries.toml`
 2. **Add Go package licenses** — Extend the known licenses in `wasm_forensics.rs`
@@ -225,8 +225,6 @@ Skera is open source under AGPL-3.0. Contributions welcome:
 
 ## License
 
-**AGPL-3.0-only** — If you use Skera in a network service, you must open-source your modifications.
-
-This is deliberate. The companies we audit hide their code to avoid scrutiny. We don't.
+**MIT** — Use it however you want. Build on it. Ship it. We don't restrict our tools like the companies we audit restrict their code.
 
 See [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md) for all dependency attributions.
