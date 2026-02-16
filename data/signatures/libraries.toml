@@ -1080,7 +1080,7 @@ strings = [
   { p = "CodeMirror.commands", d = "command registry", c = 0.85 },
 ]
 
-# ─── Unlicensed / Weaponized Libraries (Found in Surveillance Extensions) ──
+# ─── Unlicensed / Research Libraries ───────────────────────────────
 
 [[lib]]
 name = "Joseph Myers MD5"
@@ -1113,7 +1113,7 @@ family = "permissive"
 min_hits = 2
 copyright = "Daniel Roesler"
 source = "https://github.com/nicedude/webrtc-ips"
-commercial_restriction = "Originally a research demo showing WebRTC IP leaks. Securly weaponized this to geolocate students."
+commercial_restriction = "Originally a research demo showing WebRTC IP leaks. Used for IP-based geolocation."
 strings = [
   { p = "RTCPeerConnection", d = "WebRTC peer connection API", c = 0.50 },
   { p = "createDataChannel", d = "WebRTC data channel creation", c = 0.60 },
@@ -1142,7 +1142,7 @@ strings = [
   { p = "runtime.wasmWrite", d = "Go WASM write function", c = 0.90 },
 ]
 
-# ─── EdTech Surveillance Specific ──────────────────────────────────
+# ─── Browser Extension Frameworks ──────────────────────────────────
 
 [[lib]]
 name = "Securly Extension Framework"
@@ -1158,7 +1158,7 @@ strings = [
   { p = "content10.min.js", d = "Securly dynamically injected content script", c = 0.99 },
   { p = "securly.com", d = "Securly domain", c = 0.80 },
   { p = "getYoutubeTitle", d = "YouTube title extraction function", c = 0.95 },
-  { p = "data-hovercard-id", d = "Google Chat user ID extraction selector", c = 0.90 },
+  { p = "data-hovercard-id", d = "User ID extraction selector", c = 0.90 },
 ]
 
 [[lib]]

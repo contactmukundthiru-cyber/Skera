@@ -16,12 +16,9 @@
 
 ## Why Skera
 
-The K-12 surveillance software industry ships code stolen from open-source projects without attribution or license compliance. We found:
+Software vendors routinely ship code taken from open-source projects without attribution or license compliance — stripped copyright headers, minified bundles hiding stolen libraries, opaque WASM binaries embedding dozens of dependencies with zero documentation. Existing tools catch some of this; Skera catches what they miss.
 
-- **Securly** — ships jQuery, CryptoJS, FuzzySet.js (commercial-restricted), and webrtc-ips without any attribution
-- **Lightspeed Systems** — ships an opaque Go-compiled WASM binary containing `github.com/google/uuid`, `quic-go`, `zerolog`, and `go-isatty` with zero license notices, plus Joseph Myers' unlicensed MD5 implementation (copyright infringement)
-
-These companies charge schools millions in public funds to surveil children while building their products on stolen code. Skera exists to find this automatically.
+Built to audit browser extensions, enterprise software, firmware, and web applications at forensic depth. If there's stolen code in a binary, Skera will find it.
 
 ## Features
 
@@ -222,6 +219,25 @@ Skera is open source under MIT. Contributions welcome:
 2. **Add Go package licenses** — Extend the known licenses in `wasm_forensics.rs`
 3. **Report false positives** — Open an issue with the file that triggered it
 4. **Add detection modules** — Follow the pattern in existing modules
+
+## Legal Basis
+
+Skera performs static analysis of software you lawfully possess. The right to analyze, reverse engineer, and audit software for license compliance is well-established:
+
+| Authority | Jurisdiction | What It Protects |
+|-----------|-------------|-----------------|
+| **17 U.S.C. § 107** (Fair Use) | 🇺🇸 US | Analysis for research, criticism, and commentary is fair use — especially when examining factual elements (function names, strings, dependencies) rather than creative expression |
+| **17 U.S.C. § 117(a)** | 🇺🇸 US | Owner of a copy may make copies "as an essential step in the utilization of the computer program" — including for analysis |
+| **17 U.S.C. § 1201(f)** | 🇺🇸 US | DMCA explicitly permits reverse engineering "for the sole purpose of identifying and analyzing those elements of the program that are necessary to achieve interoperability" |
+| ***Sega v. Accolade*, 977 F.2d 1510 (9th Cir. 1992)** | 🇺🇸 US | Reverse engineering of object code is fair use when it is the only way to access unprotected functional elements |
+| ***Oracle v. Google*, 593 U.S. 1 (2021)** | 🇺🇸 US | Supreme Court held that reimplementation of APIs constitutes fair use; factual elements of programs (APIs, interfaces) are not strongly protected |
+| **EU Directive 2009/24/EC, Art. 5-6** | 🇪🇺 EU | Permits decompilation for interoperability and error correction without authorization of the rightholder |
+| **UK Copyright, Designs and Patents Act 1988, §§ 50A-50C** | 🇬🇧 UK | Permits decompilation for interoperability and observing/studying/testing program behavior |
+
+Skera examines **factual elements** — function names, string literals, package paths, cryptographic constants, API endpoints — not creative expression. These elements are the metadata that proves provenance, and analyzing them is protected activity.
+
+> *"Where disassembly is the only way to gain access to the ideas and functional elements embodied in a copyrighted computer program and where there is a legitimate reason for seeking such access, disassembly is a fair use of the copyrighted work."*  
+> — *Sega Enterprises Ltd. v. Accolade, Inc.*, 977 F.2d 1510 (9th Cir. 1992)
 
 ## License
 
