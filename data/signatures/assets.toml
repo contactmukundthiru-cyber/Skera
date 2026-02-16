@@ -1,0 +1,357 @@
+# ═══════════════════════════════════════════════════════════════════
+# Skera — Asset Signature Database v2.0
+# ═══════════════════════════════════════════════════════════════════
+# Fonts, CSS frameworks, and icon sets — the other half of copyright.
+# A font used without a license is just as much infringement as
+# code used without attribution.
+
+# ─── Commercial Fonts (require purchased license) ──────────────────
+
+[[font]]
+name = "Proxima Nova"
+foundry = "Mark Simonson Studio"
+license = "Commercial"
+family = "proprietary"
+source = "https://www.marksimonson.com/fonts/view/proxima-nova"
+requires_license = true
+detection_strings = ["Proxima Nova", "ProximaNova", "proxima-nova"]
+css_families = ["'Proxima Nova'", "ProximaNova"]
+file_patterns = ["proxima-nova", "proximanova", "ProximaNova"]
+
+[[font]]
+name = "Helvetica Neue"
+foundry = "Linotype GmbH"
+license = "Commercial"
+family = "proprietary"
+source = "https://www.linotype.com/"
+requires_license = true
+detection_strings = ["Helvetica Neue", "HelveticaNeue"]
+css_families = ["'Helvetica Neue'", "HelveticaNeue"]
+file_patterns = ["helvetica-neue", "helveticaneue", "HelveticaNeue"]
+
+[[font]]
+name = "Futura"
+foundry = "URW Type Foundry / Bauer"
+license = "Commercial"
+family = "proprietary"
+source = "https://www.urwtype.com/"
+requires_license = true
+detection_strings = ["Futura PT", "FuturaPT", "Futura Std"]
+css_families = ["'Futura PT'", "'Futura Std'", "FuturaPT"]
+file_patterns = ["futura-pt", "futurapt", "futura-std"]
+
+[[font]]
+name = "Gotham"
+foundry = "Hoefler & Co."
+license = "Commercial"
+family = "proprietary"
+source = "https://www.typography.com/fonts/gotham/"
+requires_license = true
+detection_strings = ["Gotham", "Gotham Rounded", "Gotham SSm"]
+css_families = ["'Gotham'", "'Gotham Rounded'", "'Gotham SSm'"]
+file_patterns = ["gotham", "GothamRounded", "GothamSSm"]
+
+[[font]]
+name = "Avenir"
+foundry = "Linotype GmbH"
+license = "Commercial"
+family = "proprietary"
+source = "https://www.linotype.com/"
+requires_license = true
+detection_strings = ["Avenir Next", "AvenirNext", "Avenir LT"]
+css_families = ["'Avenir Next'", "'Avenir LT Std'", "AvenirNext"]
+file_patterns = ["avenir-next", "avenirnext", "AvenirNext"]
+
+[[font]]
+name = "FF DIN"
+foundry = "FontFont / Monotype"
+license = "Commercial"
+family = "proprietary"
+source = "https://www.fontfont.com/"
+requires_license = true
+detection_strings = ["FF DIN", "FFDIN", "DIN Pro"]
+css_families = ["'FF DIN'", "'DIN Pro'", "FFDIN"]
+file_patterns = ["ff-din", "ffdin", "din-pro"]
+
+[[font]]
+name = "Circular"
+foundry = "Lineto"
+license = "Commercial"
+family = "proprietary"
+source = "https://lineto.com/typefaces/circular"
+requires_license = true
+detection_strings = ["Circular Std", "CircularStd", "Circular"]
+css_families = ["'Circular Std'", "'Circular'", "CircularStd"]
+file_patterns = ["circular-std", "circularstd", "CircularStd"]
+
+[[font]]
+name = "Brandon Grotesque"
+foundry = "HvD Fonts"
+license = "Commercial"
+family = "proprietary"
+source = "https://www.hvdfonts.com/"
+requires_license = true
+detection_strings = ["Brandon Grotesque", "BrandonGrotesque"]
+css_families = ["'Brandon Grotesque'", "BrandonGrotesque"]
+file_patterns = ["brandon-grotesque", "brandongrotesque"]
+
+[[font]]
+name = "Graphik"
+foundry = "Commercial Type"
+license = "Commercial"
+family = "proprietary"
+source = "https://commercialtype.com/catalog/graphik"
+requires_license = true
+detection_strings = ["Graphik", "Graphik Web"]
+css_families = ["'Graphik'", "'Graphik Web'"]
+file_patterns = ["graphik"]
+
+[[font]]
+name = "GT Walsheim"
+foundry = "Grilli Type"
+license = "Commercial"
+family = "proprietary"
+source = "https://www.grillitype.com/typeface/gt-walsheim"
+requires_license = true
+detection_strings = ["GT Walsheim", "GTWalsheim"]
+css_families = ["'GT Walsheim'", "GTWalsheim"]
+file_patterns = ["gt-walsheim", "gtwalsheim"]
+
+[[font]]
+name = "Gilroy"
+foundry = "Radomir Tinkov"
+license = "Commercial"
+family = "proprietary"
+source = "https://www.tinkov.info/"
+requires_license = true
+detection_strings = ["Gilroy"]
+css_families = ["'Gilroy'"]
+file_patterns = ["gilroy"]
+
+[[font]]
+name = "San Francisco"
+foundry = "Apple Inc."
+license = "Restricted — Apple platforms only"
+family = "proprietary"
+source = "https://developer.apple.com/fonts/"
+requires_license = true
+detection_strings = ["SF Pro", "SF Mono", "SF Compact", "San Francisco"]
+css_families = ["'SF Pro Display'", "'SF Pro Text'", "'SF Mono'", "'SF Compact'"]
+file_patterns = ["sf-pro", "sfpro", "sf-mono", "sfmono", "sf-compact"]
+
+[[font]]
+name = "Segoe UI"
+foundry = "Microsoft Corporation"
+license = "Restricted — Microsoft products only"
+family = "proprietary"
+source = "https://docs.microsoft.com/en-us/typography/"
+requires_license = true
+detection_strings = ["Segoe UI"]
+css_families = ["'Segoe UI'"]
+file_patterns = ["segoe-ui", "segoeui", "SegoeUI"]
+
+[[font]]
+name = "Product Sans"
+foundry = "Google LLC"
+license = "Restricted — Google branding only"
+family = "proprietary"
+source = "https://fonts.google.com/"
+requires_license = true
+detection_strings = ["Product Sans", "Google Sans"]
+css_families = ["'Product Sans'", "'Google Sans'"]
+file_patterns = ["product-sans", "productsans", "google-sans", "googlesans"]
+
+# ─── Open-Source Fonts (attribution required) ──────────────────────
+
+[[font]]
+name = "Inter"
+foundry = "Rasmus Andersson"
+license = "SIL-OFL-1.1"
+family = "sil_ofl"
+source = "https://rsms.me/inter/"
+requires_license = false
+detection_strings = ["Inter"]
+css_families = ["'Inter'"]
+file_patterns = ["inter"]
+
+[[font]]
+name = "Roboto"
+foundry = "Christian Robertson / Google"
+license = "Apache-2.0"
+family = "permissive_notice"
+source = "https://fonts.google.com/specimen/Roboto"
+requires_license = false
+detection_strings = ["Roboto"]
+css_families = ["'Roboto'"]
+file_patterns = ["roboto"]
+
+[[font]]
+name = "Open Sans"
+foundry = "Steve Matteson / Google"
+license = "SIL-OFL-1.1"
+family = "sil_ofl"
+source = "https://fonts.google.com/specimen/Open+Sans"
+requires_license = false
+detection_strings = ["Open Sans", "OpenSans"]
+css_families = ["'Open Sans'", "OpenSans"]
+file_patterns = ["open-sans", "opensans", "OpenSans"]
+
+[[font]]
+name = "Source Code Pro"
+foundry = "Adobe Systems"
+license = "SIL-OFL-1.1"
+family = "sil_ofl"
+source = "https://fonts.google.com/specimen/Source+Code+Pro"
+requires_license = false
+detection_strings = ["Source Code Pro"]
+css_families = ["'Source Code Pro'"]
+file_patterns = ["source-code-pro", "sourcecodepro"]
+
+# ─── Icon Sets ──────────────────────────────────────────────────────
+
+[[icon]]
+name = "Font Awesome Free"
+author = "Fonticons, Inc."
+license = "SIL-OFL-1.1 (fonts), CC-BY-4.0 (icons), MIT (code)"
+family = "permissive"
+source = "https://fontawesome.com/"
+pro_license = "Font Awesome Pro — commercial license required ($99+/yr)"
+class_patterns = ["fa-solid", "fa-regular", "fa-brands", "fa-light", "fa-thin", "fa-duotone"]
+strings = ["fontawesome", "Font Awesome", "fa-"]
+
+[[icon]]
+name = "Material Icons"
+author = "Google LLC"
+license = "Apache-2.0"
+family = "permissive_notice"
+source = "https://fonts.google.com/icons"
+class_patterns = ["material-icons", "material-symbols"]
+strings = ["material-icons", "Material Icons", "material-symbols"]
+
+[[icon]]
+name = "Ionicons"
+author = "Ionic Team"
+license = "MIT"
+family = "permissive"
+source = "https://ionic.io/ionicons"
+class_patterns = ["ion-icon", "ionicon"]
+strings = ["ionicons", "Ionicons"]
+
+[[icon]]
+name = "Feather Icons"
+author = "Cole Bemis"
+license = "MIT"
+family = "permissive"
+source = "https://feathericons.com/"
+class_patterns = ["feather"]
+strings = ["feather-icons", "feather"]
+
+[[icon]]
+name = "Bootstrap Icons"
+author = "Twitter, Inc. and Bootstrap Authors"
+license = "MIT"
+family = "permissive"
+source = "https://icons.getbootstrap.com/"
+class_patterns = ["bi-", "bi bi-"]
+strings = ["bootstrap-icons"]
+
+[[icon]]
+name = "Heroicons"
+author = "Tailwind Labs"
+license = "MIT"
+family = "permissive"
+source = "https://heroicons.com/"
+class_patterns = ["heroicon"]
+strings = ["heroicons"]
+
+[[icon]]
+name = "Lucide"
+author = "Lucide Contributors"
+license = "ISC"
+family = "permissive"
+source = "https://lucide.dev/"
+class_patterns = ["lucide"]
+strings = ["lucide-react", "lucide-vue", "lucide"]
+
+[[icon]]
+name = "Tabler Icons"
+author = "Paweł Kuna"
+license = "MIT"
+family = "permissive"
+source = "https://tabler-icons.io/"
+class_patterns = ["ti-", "tabler-icon"]
+strings = ["tabler-icons"]
+
+# ─── CSS Frameworks ─────────────────────────────────────────────────
+
+[[css]]
+name = "Bootstrap"
+author = "Twitter, Inc. and Bootstrap Authors"
+license = "MIT"
+family = "permissive"
+source = "https://getbootstrap.com/"
+class_patterns = ["btn-primary", "btn-secondary", "btn-danger", "btn-warning", "container-fluid", "navbar-nav", "navbar-brand", "card-body", "modal-dialog", "form-control", "input-group", "list-group"]
+strings = ["Bootstrap", "getbootstrap.com", "bootstrap.min.css", "bootstrap.bundle"]
+
+[[css]]
+name = "Foundation"
+author = "ZURB, Inc."
+license = "MIT"
+family = "permissive"
+source = "https://get.foundation/"
+class_patterns = ["columns", "callout", "reveal", "top-bar", "off-canvas", "orbit"]
+strings = ["Foundation", "foundation.zurb.com"]
+
+[[css]]
+name = "Bulma"
+author = "Jeremy Thomas"
+license = "MIT"
+family = "permissive"
+source = "https://bulma.io/"
+class_patterns = ["is-primary", "is-danger", "is-success", "is-info", "is-warning", "is-dark", "is-light", "column is-", "hero-body", "notification"]
+strings = ["Bulma", "bulma.io"]
+
+[[css]]
+name = "Materialize CSS"
+author = "Materialize"
+license = "MIT"
+family = "permissive"
+source = "https://materializecss.com/"
+class_patterns = ["waves-effect", "waves-light", "chip", "collapsible", "sidenav", "z-depth-"]
+strings = ["Materialize", "materializecss"]
+
+[[css]]
+name = "Tailwind CSS"
+author = "Tailwind Labs"
+license = "MIT"
+family = "permissive"
+source = "https://tailwindcss.com/"
+class_patterns = ["bg-blue-500", "text-gray-700", "flex items-center", "rounded-lg", "shadow-md", "hover:bg-", "md:flex", "lg:grid"]
+strings = ["tailwindcss", "Tailwind CSS"]
+
+[[css]]
+name = "Semantic UI"
+author = "Jack Lukic"
+license = "MIT"
+family = "permissive"
+source = "https://semantic-ui.com/"
+class_patterns = ["ui button", "ui segment", "ui container", "ui header", "ui grid", "ui form"]
+strings = ["Semantic UI", "semantic-ui"]
+
+[[css]]
+name = "Ant Design"
+author = "Ant Group"
+license = "MIT"
+family = "permissive"
+source = "https://ant.design/"
+class_patterns = ["ant-btn", "ant-input", "ant-form", "ant-table", "ant-modal", "ant-select", "ant-pagination"]
+strings = ["antd", "Ant Design", "ant-design"]
+
+[[css]]
+name = "Chakra UI"
+author = "Segun Adebayo"
+license = "MIT"
+family = "permissive"
+source = "https://chakra-ui.com/"
+class_patterns = ["chakra-", "css-"]
+strings = ["@chakra-ui", "chakra-ui"]

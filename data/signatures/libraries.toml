@@ -1,0 +1,1179 @@
+# ═══════════════════════════════════════════════════════════════════
+# Skera — Library Signature Database v2.0
+# ═══════════════════════════════════════════════════════════════════
+#
+# Every signature uses fingerprints that SURVIVE minification:
+#   - Error messages (functional necessity — removing breaks behavior)
+#   - Public API names (compatibility necessity — renaming breaks callers)
+#   - Crypto constants (mathematical necessity — changing breaks algorithms)
+#   - Internal class names (structural necessity — used in instanceof)
+#
+# Format: p=pattern, d=description, c=confidence (0.0-1.0)
+#         v=value, k=kind (crypto|magic|module|internal|hex)
+#         r=regex, d=description
+#
+# family: permissive | permissive_notice | weak_copyleft |
+#         strong_copyleft | commercial_restricted | source_available | proprietary
+
+# ─── jQuery Ecosystem ───────────────────────────────────────────────
+
+[[lib]]
+name = "jQuery"
+author = "OpenJS Foundation and other contributors"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "(c) OpenJS Foundation"
+source = "https://code.jquery.com/"
+strings = [
+  { p = "jQuery requires a window with a document", d = "core error message — unique to jQuery", c = 0.99 },
+  { p = "jQuery.noConflict", d = "noConflict API", c = 0.95 },
+  { p = "jQuery.fn.init", d = "prototype initialization", c = 0.95 },
+  { p = "jQuery.event.dispatch", d = "event system dispatch", c = 0.90 },
+  { p = "ajaxTransport", d = "AJAX transport layer", c = 0.85 },
+  { p = "isPlainObject", d = "utility method", c = 0.60 },
+  { p = "jQuery.Deferred", d = "Deferred/Promise implementation", c = 0.90 },
+  { p = "jQuery.parseHTML", d = "HTML parser", c = 0.85 },
+  { p = "jQuery.ajaxSetup", d = "AJAX configuration", c = 0.85 },
+  { p = "jQuery.holdReady", d = "ready hold API", c = 0.90 },
+]
+versions = [
+  { r = "jQuery\\s*(?:JavaScript\\s*Library\\s*)?v?(\\d+\\.\\d+\\.\\d+)", d = "version string" },
+]
+
+[[lib]]
+name = "jQuery UI"
+author = "OpenJS Foundation and other contributors"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "(c) OpenJS Foundation"
+source = "https://jqueryui.com/"
+strings = [
+  { p = "jQuery UI", d = "jQuery UI identifier", c = 0.90 },
+  { p = "ui-draggable", d = "draggable widget class", c = 0.80 },
+  { p = "ui-resizable", d = "resizable widget class", c = 0.80 },
+  { p = "ui-sortable", d = "sortable widget class", c = 0.80 },
+  { p = "ui-datepicker", d = "datepicker widget class", c = 0.85 },
+  { p = "ui-dialog", d = "dialog widget class", c = 0.80 },
+  { p = "ui-accordion", d = "accordion widget class", c = 0.80 },
+]
+versions = [
+  { r = "jQuery UI\\s*-?\\s*v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Sizzle CSS Selector Engine"
+author = "jQuery Foundation / JS Foundation"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "JS Foundation"
+source = "https://github.com/jquery/sizzle"
+strings = [
+  { p = "Sizzle", d = "Sizzle namespace", c = 0.80 },
+  { p = "sortStable", d = "sort stability check", c = 0.75 },
+  { p = "pseudos", d = "pseudo-class handler", c = 0.50 },
+  { p = "getText", d = "text extraction utility", c = 0.55 },
+  { p = "tokenize", d = "selector tokenizer", c = 0.50 },
+]
+
+[[lib]]
+name = "Zepto.js"
+author = "Thomas Fuchs"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Thomas Fuchs"
+source = "https://zeptojs.com/"
+strings = [
+  { p = "Zepto", d = "Zepto namespace", c = 0.85 },
+  { p = "$.zepto", d = "Zepto internal namespace", c = 0.95 },
+  { p = "zepto.init", d = "Zepto initialization", c = 0.90 },
+  { p = "zepto.fragment", d = "DOM fragment creation", c = 0.85 },
+]
+
+# ─── Modern Frameworks ─────────────────────────────────────────────
+
+[[lib]]
+name = "React"
+author = "Meta Platforms, Inc."
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Meta Platforms, Inc."
+source = "https://react.dev/"
+strings = [
+  { p = "__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED", d = "React internal access guard — absolutely unique", c = 0.99 },
+  { p = "react.element", d = "React element symbol description", c = 0.90 },
+  { p = "react.fragment", d = "React fragment symbol", c = 0.85 },
+  { p = "react.portal", d = "React portal symbol", c = 0.85 },
+  { p = "react.strict_mode", d = "StrictMode symbol", c = 0.90 },
+  { p = "Invalid hook call", d = "React hooks error message", c = 0.95 },
+  { p = "react.suspense", d = "Suspense symbol", c = 0.85 },
+  { p = "react.memo", d = "React.memo symbol", c = 0.80 },
+]
+versions = [
+  { r = "react[./]v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "ReactDOM"
+author = "Meta Platforms, Inc."
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Meta Platforms, Inc."
+source = "https://react.dev/"
+strings = [
+  { p = "createRoot", d = "React 18+ createRoot API", c = 0.60 },
+  { p = "hydrateRoot", d = "React 18+ SSR hydration", c = 0.85 },
+  { p = "react-dom", d = "ReactDOM module reference", c = 0.80 },
+  { p = "unmountComponentAtNode", d = "legacy unmount API", c = 0.90 },
+  { p = "findDOMNode", d = "legacy DOM access API", c = 0.85 },
+  { p = "flushSync", d = "synchronous flush API", c = 0.80 },
+]
+
+[[lib]]
+name = "Preact"
+author = "Jason Miller"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Jason Miller"
+source = "https://preactjs.com/"
+strings = [
+  { p = "preact", d = "Preact module name", c = 0.75 },
+  { p = "__preactattr_", d = "Preact internal attribute marker", c = 0.99 },
+  { p = "preactComponent", d = "Preact component marker", c = 0.95 },
+]
+
+[[lib]]
+name = "Vue.js"
+author = "Evan You"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Evan You"
+source = "https://vuejs.org/"
+strings = [
+  { p = "__vue__", d = "Vue instance marker", c = 0.95 },
+  { p = "Vue.use", d = "Vue plugin API", c = 0.80 },
+  { p = "Vue.component", d = "component registration API", c = 0.80 },
+  { p = "Vue.directive", d = "directive registration", c = 0.80 },
+  { p = "createApp", d = "Vue 3 application creation", c = 0.55 },
+  { p = "Vue.nextTick", d = "async DOM update", c = 0.85 },
+  { p = "v-model", d = "two-way binding directive", c = 0.50 },
+  { p = "$emit", d = "event emission method", c = 0.40 },
+  { p = "vue-router", d = "Vue Router reference", c = 0.80 },
+]
+versions = [
+  { r = "Vue\\.js\\s*v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+  { r = "vue@(\\d+\\.\\d+\\.\\d+)", d = "package version" },
+]
+
+[[lib]]
+name = "AngularJS"
+author = "Google LLC"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Google LLC"
+source = "https://angularjs.org/"
+strings = [
+  { p = "angular.module", d = "AngularJS module API", c = 0.95 },
+  { p = "$rootScope", d = "root scope service", c = 0.85 },
+  { p = "$compile", d = "template compiler service", c = 0.80 },
+  { p = "$injector", d = "dependency injection service", c = 0.80 },
+  { p = "ng-app", d = "application bootstrap directive", c = 0.70 },
+  { p = "ng-model", d = "model binding directive", c = 0.60 },
+  { p = "ng-controller", d = "controller directive", c = 0.70 },
+  { p = "angular.bootstrap", d = "manual bootstrap", c = 0.90 },
+]
+versions = [
+  { r = "AngularJS\\s*v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Svelte"
+author = "Rich Harris"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Rich Harris"
+source = "https://svelte.dev/"
+strings = [
+  { p = "SvelteComponent", d = "Svelte component base class", c = 0.95 },
+  { p = "svelte/internal", d = "Svelte internals module", c = 0.95 },
+  { p = "create_fragment", d = "Svelte fragment creation", c = 0.80 },
+  { p = "$$invalidate", d = "Svelte reactivity invalidation", c = 0.95 },
+]
+
+[[lib]]
+name = "Backbone.js"
+author = "Jeremy Ashkenas"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Jeremy Ashkenas"
+source = "https://backbonejs.org/"
+strings = [
+  { p = "Backbone.Model", d = "Backbone Model class", c = 0.90 },
+  { p = "Backbone.View", d = "Backbone View class", c = 0.90 },
+  { p = "Backbone.Collection", d = "Backbone Collection class", c = 0.90 },
+  { p = "Backbone.Router", d = "Backbone Router class", c = 0.90 },
+  { p = "Backbone.sync", d = "Backbone sync method", c = 0.90 },
+  { p = "Backbone.history", d = "Backbone history manager", c = 0.85 },
+]
+versions = [
+  { r = "Backbone\\.js\\s*(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Ember.js"
+author = "Tilde Inc."
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Tilde Inc."
+source = "https://emberjs.com/"
+strings = [
+  { p = "Ember.Component", d = "Ember component class", c = 0.90 },
+  { p = "Ember.Route", d = "Ember route class", c = 0.85 },
+  { p = "Ember.Controller", d = "Ember controller class", c = 0.85 },
+  { p = "Ember.Object", d = "Ember base object class", c = 0.80 },
+  { p = "Ember.computed", d = "computed property API", c = 0.85 },
+]
+
+[[lib]]
+name = "Knockout"
+author = "Steven Sanderson"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Steven Sanderson"
+source = "https://knockoutjs.com/"
+strings = [
+  { p = "ko.observable", d = "Knockout observable API", c = 0.90 },
+  { p = "ko.computed", d = "Knockout computed API", c = 0.85 },
+  { p = "ko.applyBindings", d = "binding application", c = 0.90 },
+  { p = "ko.observableArray", d = "observable array", c = 0.90 },
+  { p = "data-bind", d = "Knockout binding attribute", c = 0.60 },
+]
+
+[[lib]]
+name = "Lit"
+author = "Google LLC"
+license = "BSD-3-Clause"
+family = "permissive"
+min_hits = 2
+copyright = "Google LLC"
+source = "https://lit.dev/"
+strings = [
+  { p = "LitElement", d = "LitElement base class", c = 0.95 },
+  { p = "html`", d = "Lit html tagged template", c = 0.70 },
+  { p = "css`", d = "Lit css tagged template", c = 0.60 },
+  { p = "customElement", d = "custom element decorator", c = 0.50 },
+]
+
+# ─── Utility Libraries ─────────────────────────────────────────────
+
+[[lib]]
+name = "Lodash"
+author = "John-David Dalton"
+license = "MIT"
+family = "permissive"
+min_hits = 3
+copyright = "John-David Dalton"
+source = "https://lodash.com/"
+strings = [
+  { p = "Expected a function", d = "common Lodash error message", c = 0.70 },
+  { p = "__wrapped__", d = "Lodash chain wrapper internal property", c = 0.95 },
+  { p = "lodash", d = "Lodash module name", c = 0.70 },
+  { p = "_.debounce", d = "debounce utility", c = 0.75 },
+  { p = "_.throttle", d = "throttle utility", c = 0.75 },
+  { p = "_.cloneDeep", d = "deep clone utility", c = 0.80 },
+  { p = "_.isPlainObject", d = "type check utility", c = 0.60 },
+  { p = "_.merge", d = "merge utility", c = 0.50 },
+  { p = "LARGE_ARRAY_SIZE", d = "internal constant", c = 0.90 },
+]
+versions = [
+  { r = "lodash\\s*v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Underscore.js"
+author = "Jeremy Ashkenas"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Jeremy Ashkenas"
+source = "https://underscorejs.org/"
+strings = [
+  { p = "_.template", d = "template compilation", c = 0.75 },
+  { p = "_.chain", d = "chain wrapper", c = 0.70 },
+  { p = "_.mixin", d = "mixin API", c = 0.80 },
+  { p = "_.uniqueId", d = "unique ID generator", c = 0.70 },
+  { p = "underscore", d = "module name", c = 0.65 },
+]
+versions = [
+  { r = "Underscore\\.js\\s*(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Moment.js"
+author = "Tim Wood, Iskren Chernev, Moment.js contributors"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Tim Wood, Iskren Chernev"
+source = "https://momentjs.com/"
+strings = [
+  { p = "moment.locale", d = "locale API", c = 0.90 },
+  { p = "moment.duration", d = "duration API", c = 0.85 },
+  { p = "moment.utc", d = "UTC creation", c = 0.80 },
+  { p = "Invalid date", d = "Moment error string", c = 0.50 },
+  { p = "YYYY-MM-DD", d = "ISO format constant", c = 0.40 },
+  { p = "moment.fn", d = "Moment prototype", c = 0.85 },
+  { p = "moment.defineLocale", d = "locale definition API", c = 0.90 },
+]
+versions = [
+  { r = "moment\\.js\\s*v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Day.js"
+author = "iamkun"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "iamkun"
+source = "https://day.js.org/"
+strings = [
+  { p = "dayjs", d = "Day.js namespace", c = 0.80 },
+  { p = "dayjs.extend", d = "plugin extension API", c = 0.90 },
+  { p = "dayjs.locale", d = "locale API", c = 0.85 },
+  { p = "$isDayjsObject", d = "internal type check", c = 0.99 },
+]
+
+[[lib]]
+name = "Luxon"
+author = "Isaac Cambron"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Isaac Cambron"
+source = "https://moment.github.io/luxon/"
+strings = [
+  { p = "DateTime.fromISO", d = "Luxon DateTime factory", c = 0.90 },
+  { p = "Duration.fromMillis", d = "Luxon Duration factory", c = 0.85 },
+  { p = "Interval.fromDateTimes", d = "Luxon Interval factory", c = 0.90 },
+  { p = "Settings.defaultZone", d = "Luxon timezone config", c = 0.85 },
+]
+
+[[lib]]
+name = "RxJS"
+author = "Google LLC and RxJS contributors"
+license = "Apache-2.0"
+family = "permissive_notice"
+min_hits = 2
+copyright = "Google LLC"
+source = "https://rxjs.dev/"
+strings = [
+  { p = "Observable", d = "RxJS core class", c = 0.45 },
+  { p = "BehaviorSubject", d = "RxJS subject type", c = 0.80 },
+  { p = "ReplaySubject", d = "RxJS subject type", c = 0.80 },
+  { p = "switchMap", d = "RxJS operator", c = 0.60 },
+  { p = "mergeMap", d = "RxJS operator", c = 0.60 },
+  { p = "combineLatest", d = "RxJS combinator", c = 0.65 },
+  { p = "ObjectUnsubscribedError", d = "RxJS internal error class", c = 0.95 },
+]
+
+# ─── Networking ─────────────────────────────────────────────────────
+
+[[lib]]
+name = "Axios"
+author = "Matt Zabriskie"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Matt Zabriskie"
+source = "https://axios-http.com/"
+strings = [
+  { p = "ERR_BAD_REQUEST", d = "Axios error code", c = 0.85 },
+  { p = "ERR_NETWORK", d = "Axios error code", c = 0.85 },
+  { p = "ERR_BAD_RESPONSE", d = "Axios error code", c = 0.90 },
+  { p = "ERR_CANCELED", d = "Axios error code", c = 0.85 },
+  { p = "ERR_BAD_OPTION_VALUE", d = "Axios validation error", c = 0.95 },
+  { p = "Request aborted", d = "Axios abort message", c = 0.70 },
+  { p = ".interceptors", d = "Axios interceptor API", c = 0.65 },
+]
+versions = [
+  { r = "axios/v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Socket.IO Client"
+author = "Guillermo Rauch"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Guillermo Rauch"
+source = "https://socket.io/"
+strings = [
+  { p = "socket.io", d = "Socket.IO module name", c = 0.85 },
+  { p = "Engine.IO", d = "Engine.IO internal engine", c = 0.90 },
+  { p = "connect_error", d = "connection error event name", c = 0.70 },
+  { p = "disconnect", d = "disconnect event", c = 0.35 },
+  { p = "reconnect_attempt", d = "reconnection event", c = 0.85 },
+]
+
+# ─── Cryptography ───────────────────────────────────────────────────
+
+[[lib]]
+name = "CryptoJS"
+author = "Jeff Mott, Evan Vosberg"
+license = "MIT"
+family = "permissive"
+min_hits = 3
+copyright = "Jeff Mott"
+source = "https://github.com/brix/crypto-js"
+strings = [
+  { p = "CryptoJS", d = "CryptoJS namespace", c = 0.95 },
+  { p = "WordArray", d = "core WordArray class", c = 0.60 },
+  { p = "BufferedBlockAlgorithm", d = "block cipher base class", c = 0.95 },
+  { p = "StreamCipher", d = "stream cipher class", c = 0.70 },
+  { p = "EvpKDF", d = "key derivation function", c = 0.90 },
+  { p = "SerializableCipher", d = "serializable cipher class", c = 0.90 },
+  { p = "PasswordBasedCipher", d = "password-based cipher", c = 0.90 },
+  { p = "OpenSSLFormatter", d = "OpenSSL format handler", c = 0.90 },
+  { p = "CipherParams", d = "cipher parameter container", c = 0.85 },
+]
+constants = [
+  { v = "1732584193", d = "SHA-1/MD5 H0 (0x67452301)", c = 0.85, k = "crypto" },
+  { v = "4023233417", d = "SHA-1/MD5 H1 (0xEFCDAB89)", c = 0.85, k = "crypto" },
+  { v = "2562383102", d = "SHA-1/MD5 H2 (0x98BADCFE)", c = 0.85, k = "crypto" },
+  { v = "271733878", d = "SHA-1/MD5 H3 (0x10325476)", c = 0.85, k = "crypto" },
+  { v = "3285377520", d = "SHA-1 H4 (0xC3D2E1F0)", c = 0.90, k = "crypto" },
+  { v = "1518500249", d = "SHA-1 K0 (0x5A827999)", c = 0.90, k = "crypto" },
+  { v = "1859775393", d = "SHA-1 K1 (0x6ED9EBA1)", c = 0.90, k = "crypto" },
+  { v = "2400959708", d = "SHA-1 K2 (0x8F1BBCDC)", c = 0.90, k = "crypto" },
+  { v = "3395469782", d = "SHA-1 K3 (0xCA62C1D6)", c = 0.90, k = "crypto" },
+  { v = "1779033703", d = "SHA-256 H0 (0x6A09E667)", c = 0.88, k = "crypto" },
+  { v = "3144134277", d = "SHA-256 H1 (0xBB67AE85)", c = 0.88, k = "crypto" },
+  { v = "1013904242", d = "SHA-256 H2 (0x3C6EF372)", c = 0.88, k = "crypto" },
+  { v = "2773480762", d = "SHA-256 H3 (0xA54FF53A)", c = 0.88, k = "crypto" },
+  { v = "1116352408", d = "SHA-256 K0 (0x428A2F98)", c = 0.90, k = "crypto" },
+  { v = "1899447441", d = "SHA-256 K1 (0x71374491)", c = 0.90, k = "crypto" },
+  { v = "3049323471", d = "SHA-256 K2 (0xB5C0FBCF)", c = 0.90, k = "crypto" },
+]
+
+[[lib]]
+name = "Stanford SJCL"
+author = "Emily Stark, Mike Hamburg, Dan Boneh (Stanford)"
+license = "BSD-2-Clause"
+family = "permissive"
+min_hits = 2
+copyright = "Emily Stark, Mike Hamburg, Dan Boneh"
+source = "https://bitwiseshiftleft.github.io/sjcl/"
+strings = [
+  { p = "sjcl", d = "SJCL namespace", c = 0.90 },
+  { p = "sjcl.hash", d = "hash module", c = 0.90 },
+  { p = "sjcl.cipher", d = "cipher module", c = 0.90 },
+  { p = "sjcl.codec", d = "codec module", c = 0.85 },
+  { p = "sjcl.random", d = "RNG module", c = 0.85 },
+  { p = "sjcl.misc.pbkdf2", d = "PBKDF2 key derivation", c = 0.95 },
+  { p = "sjcl.mode.ccm", d = "CCM mode", c = 0.90 },
+]
+
+[[lib]]
+name = "node-forge"
+author = "Digital Bazaar, Inc."
+license = "BSD-3-Clause"
+family = "permissive"
+min_hits = 2
+copyright = "Digital Bazaar"
+source = "https://github.com/digitalbazaar/forge"
+strings = [
+  { p = "forge.pki", d = "PKI module", c = 0.90 },
+  { p = "forge.md.sha256", d = "SHA-256 hash module", c = 0.90 },
+  { p = "forge.cipher", d = "cipher module", c = 0.80 },
+  { p = "forge.util.ByteBuffer", d = "byte buffer class", c = 0.90 },
+  { p = "forge.random", d = "random module", c = 0.80 },
+  { p = "forge.tls", d = "TLS module", c = 0.85 },
+  { p = "forge.asn1", d = "ASN.1 module", c = 0.85 },
+]
+
+[[lib]]
+name = "tweetnacl"
+author = "Dmitry Chestnykh, TweetNaCl authors"
+license = "Unlicense"
+family = "permissive"
+min_hits = 2
+copyright = "Dmitry Chestnykh"
+source = "https://github.com/nicedude/tweetnacl-js"
+strings = [
+  { p = "nacl.box", d = "public-key authenticated encryption", c = 0.85 },
+  { p = "nacl.secretbox", d = "secret-key authenticated encryption", c = 0.90 },
+  { p = "nacl.sign", d = "signature API", c = 0.80 },
+  { p = "nacl.hash", d = "hashing API", c = 0.70 },
+  { p = "nacl.randomBytes", d = "random byte generation", c = 0.80 },
+]
+
+[[lib]]
+name = "elliptic"
+author = "Fedor Indutny"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Fedor Indutny"
+source = "https://github.com/indutny/elliptic"
+strings = [
+  { p = "secp256k1", d = "Bitcoin/Ethereum curve name", c = 0.80 },
+  { p = "ed25519", d = "EdDSA curve name", c = 0.75 },
+  { p = "elliptic.ec", d = "EC constructor", c = 0.95 },
+  { p = "elliptic.eddsa", d = "EdDSA constructor", c = 0.95 },
+]
+
+[[lib]]
+name = "bn.js"
+author = "Fedor Indutny"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Fedor Indutny"
+source = "https://github.com/indutny/bn.js"
+strings = [
+  { p = "bn.js", d = "bn.js module name", c = 0.85 },
+  { p = "BN.prototype", d = "BN prototype", c = 0.80 },
+  { p = "_wordSize", d = "BN internal word size", c = 0.90 },
+  { p = "toArrayLike", d = "BN conversion API", c = 0.85 },
+]
+
+[[lib]]
+name = "hash.js"
+author = "Fedor Indutny"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Fedor Indutny"
+source = "https://github.com/indutny/hash.js"
+strings = [
+  { p = "hash.sha256", d = "SHA-256 hash factory", c = 0.90 },
+  { p = "hash.sha512", d = "SHA-512 hash factory", c = 0.90 },
+  { p = "hash.ripemd160", d = "RIPEMD-160 hash factory", c = 0.90 },
+  { p = "hash.hmac", d = "HMAC factory", c = 0.80 },
+]
+
+[[lib]]
+name = "webtoolkit.info SHA-1"
+author = "webtoolkit.info"
+license = "MIT"
+family = "permissive"
+min_hits = 3
+copyright = "http://www.webtoolkit.info/"
+source = "http://www.webtoolkit.info/javascript-sha1.html"
+constants = [
+  { v = "1732584193", d = "SHA-1 H0 (0x67452301)", c = 0.80, k = "crypto" },
+  { v = "3285377520", d = "SHA-1 H4 (0xC3D2E1F0) — strong SHA-1 marker", c = 0.90, k = "crypto" },
+  { v = "1518500249", d = "SHA-1 K0 (0x5A827999)", c = 0.85, k = "crypto" },
+]
+
+# ─── Data & Visualization ──────────────────────────────────────────
+
+[[lib]]
+name = "D3.js"
+author = "Mike Bostock"
+license = "ISC"
+family = "permissive"
+min_hits = 2
+copyright = "Mike Bostock"
+source = "https://d3js.org/"
+strings = [
+  { p = "d3.select", d = "D3 selection API", c = 0.85 },
+  { p = "d3.scaleLinear", d = "D3 scale API", c = 0.90 },
+  { p = "d3.axisBottom", d = "D3 axis API", c = 0.90 },
+  { p = "d3.transition", d = "D3 transition module", c = 0.80 },
+  { p = "d3.geoPath", d = "D3 geography API", c = 0.90 },
+  { p = "d3.hierarchy", d = "D3 hierarchy API", c = 0.85 },
+]
+versions = [
+  { r = "d3\\.?js\\s*v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Chart.js"
+author = "Chart.js contributors"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Chart.js contributors"
+source = "https://www.chartjs.org/"
+strings = [
+  { p = "Chart.register", d = "Chart.js plugin registration", c = 0.90 },
+  { p = "Chart.defaults", d = "Chart.js defaults", c = 0.85 },
+  { p = "chartjs-", d = "Chart.js plugin prefix", c = 0.70 },
+  { p = "CategoryScale", d = "Chart.js scale type", c = 0.80 },
+  { p = "LinearScale", d = "Chart.js scale type", c = 0.70 },
+]
+versions = [
+  { r = "Chart\\.js\\s*v?(\\d+\\.\\d+\\.\\d+)", d = "version" },
+]
+
+[[lib]]
+name = "Three.js"
+author = "Three.js authors"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Three.js authors"
+source = "https://threejs.org/"
+strings = [
+  { p = "THREE.WebGLRenderer", d = "Three.js WebGL renderer class", c = 0.95 },
+  { p = "THREE.Scene", d = "Three.js Scene class", c = 0.90 },
+  { p = "THREE.PerspectiveCamera", d = "Three.js camera class", c = 0.90 },
+  { p = "THREE.BufferGeometry", d = "Three.js geometry class", c = 0.90 },
+  { p = "THREE.MeshStandardMaterial", d = "Three.js material class", c = 0.90 },
+  { p = "THREE.REVISION", d = "Three.js version constant", c = 0.95 },
+]
+versions = [
+  { r = "THREE\\.REVISION\\s*=\\s*[\"'](\\d+)[\"']", d = "revision number" },
+]
+
+[[lib]]
+name = "Papa Parse"
+author = "Matt Holt"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Matt Holt"
+source = "https://www.papaparse.com/"
+strings = [
+  { p = "Papa.parse", d = "Papa Parse main API", c = 0.90 },
+  { p = "Papa.unparse", d = "Papa unparse/CSV generation", c = 0.90 },
+  { p = "papaparse", d = "module name", c = 0.80 },
+  { p = "Papa.LocalChunkSize", d = "chunking config", c = 0.95 },
+]
+
+[[lib]]
+name = "Highlight.js"
+author = "Ivan Sagalaev"
+license = "BSD-3-Clause"
+family = "permissive"
+min_hits = 2
+copyright = "Ivan Sagalaev"
+source = "https://highlightjs.org/"
+strings = [
+  { p = "hljs.highlightAll", d = "Highlight.js auto-highlight API", c = 0.90 },
+  { p = "hljs.registerLanguage", d = "language registration", c = 0.90 },
+  { p = "hljs.highlightElement", d = "element highlight API", c = 0.90 },
+  { p = "hljs.configure", d = "configuration API", c = 0.85 },
+  { p = "hljs.listLanguages", d = "language listing", c = 0.85 },
+]
+
+[[lib]]
+name = "Marked"
+author = "Christopher Jeffrey"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Christopher Jeffrey"
+source = "https://marked.js.org/"
+strings = [
+  { p = "marked.parse", d = "Marked parse API", c = 0.85 },
+  { p = "marked.setOptions", d = "Marked options API", c = 0.85 },
+  { p = "marked.Renderer", d = "Marked renderer class", c = 0.85 },
+  { p = "marked.Tokenizer", d = "Marked tokenizer class", c = 0.85 },
+]
+
+# ─── DOM Utilities ──────────────────────────────────────────────────
+
+[[lib]]
+name = "DOMPurify"
+author = "Mario Heiderich"
+license = "Apache-2.0"
+family = "permissive_notice"
+min_hits = 2
+copyright = "Mario Heiderich"
+source = "https://github.com/cure53/DOMPurify"
+strings = [
+  { p = "DOMPurify", d = "DOMPurify namespace", c = 0.90 },
+  { p = "ALLOWED_TAGS", d = "tag whitelist config", c = 0.75 },
+  { p = "FORBID_TAGS", d = "tag blacklist config", c = 0.80 },
+  { p = "ALLOWED_ATTR", d = "attribute whitelist config", c = 0.75 },
+  { p = "DOMPurify.sanitize", d = "sanitization API", c = 0.95 },
+]
+
+[[lib]]
+name = "Hammer.js"
+author = "Jorik Tangelder"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Jorik Tangelder"
+source = "https://hammerjs.github.io/"
+strings = [
+  { p = "Hammer.Manager", d = "Hammer manager class", c = 0.90 },
+  { p = "Hammer.Tap", d = "tap recognizer", c = 0.85 },
+  { p = "Hammer.Pan", d = "pan recognizer", c = 0.85 },
+  { p = "Hammer.Swipe", d = "swipe recognizer", c = 0.85 },
+  { p = "Hammer.Pinch", d = "pinch recognizer", c = 0.85 },
+]
+
+[[lib]]
+name = "Sortable.js"
+author = "RubaXa, owenm"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "RubaXa"
+source = "https://sortablejs.github.io/Sortable/"
+strings = [
+  { p = "Sortable.create", d = "Sortable creation API", c = 0.85 },
+  { p = "sortable-ghost", d = "ghost element class", c = 0.80 },
+  { p = "sortable-chosen", d = "chosen element class", c = 0.80 },
+  { p = "sortable-drag", d = "drag element class", c = 0.80 },
+]
+
+[[lib]]
+name = "Clipboard.js"
+author = "Zeno Rocha"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Zeno Rocha"
+source = "https://clipboardjs.com/"
+strings = [
+  { p = "ClipboardJS", d = "ClipboardJS constructor", c = 0.95 },
+  { p = "clipboard.js", d = "module name", c = 0.85 },
+  { p = "clipboard-action", d = "internal action class", c = 0.85 },
+]
+
+[[lib]]
+name = "Popper.js"
+author = "Federico Zivolo"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Federico Zivolo"
+source = "https://popper.js.org/"
+strings = [
+  { p = "createPopper", d = "Popper creation API", c = 0.80 },
+  { p = "popperOffsets", d = "Popper offset modifier", c = 0.85 },
+  { p = "computeStyles", d = "Popper style computation", c = 0.75 },
+  { p = "preventOverflow", d = "Popper overflow prevention", c = 0.80 },
+  { p = "detectOverflow", d = "Popper overflow detection", c = 0.80 },
+]
+
+# ─── Compression & Encoding ────────────────────────────────────────
+
+[[lib]]
+name = "JSZip"
+author = "Stuart Knightley"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Stuart Knightley"
+source = "https://stuk.github.io/jszip/"
+strings = [
+  { p = "JSZip", d = "JSZip constructor", c = 0.90 },
+  { p = ".generateAsync", d = "async ZIP generation", c = 0.70 },
+  { p = ".loadAsync", d = "async ZIP loading", c = 0.70 },
+  { p = "STORE", d = "ZIP compression method", c = 0.40 },
+]
+
+[[lib]]
+name = "pako"
+author = "Andrey Tupitsin, Vitaly Puzrin"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Vitaly Puzrin"
+source = "https://github.com/nicedude/pako"
+strings = [
+  { p = "pako", d = "pako namespace", c = 0.80 },
+  { p = "Z_OK", d = "zlib success constant", c = 0.70 },
+  { p = "Z_STREAM_END", d = "zlib stream end constant", c = 0.75 },
+  { p = "Z_BEST_COMPRESSION", d = "zlib compression level", c = 0.80 },
+]
+
+[[lib]]
+name = "lz-string"
+author = "Pieroxy"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Pieroxy"
+source = "https://pieroxy.net/blog/pages/lz-string/"
+strings = [
+  { p = "LZString", d = "LZString namespace", c = 0.90 },
+  { p = "compressToBase64", d = "Base64 compression API", c = 0.90 },
+  { p = "decompressFromBase64", d = "Base64 decompression API", c = 0.90 },
+  { p = "compressToUTF16", d = "UTF-16 compression", c = 0.90 },
+  { p = "compressToEncodedURIComponent", d = "URI component compression", c = 0.95 },
+]
+
+# ─── Build Tool Runtimes ────────────────────────────────────────────
+
+[[lib]]
+name = "Webpack Runtime"
+author = "Tobias Koppers"
+license = "MIT"
+family = "permissive"
+min_hits = 1
+copyright = "Tobias Koppers"
+source = "https://webpack.js.org/"
+strings = [
+  { p = "__webpack_require__", d = "Webpack module resolver — definitive marker", c = 0.99 },
+  { p = "__webpack_modules__", d = "Webpack module registry", c = 0.95 },
+  { p = "webpackChunk", d = "Webpack chunk loading", c = 0.90 },
+  { p = "__webpack_exports__", d = "Webpack export marker", c = 0.90 },
+]
+
+[[lib]]
+name = "Browserify Runtime"
+author = "James Halliday (substack)"
+license = "MIT"
+family = "permissive"
+min_hits = 1
+copyright = "James Halliday"
+source = "https://github.com/browserify/browserify"
+strings = [
+  { p = "Cannot find module", d = "Browserify module resolution error", c = 0.75 },
+  { p = "require is not a function", d = "require polyfill error", c = 0.70 },
+]
+
+[[lib]]
+name = "SystemJS"
+author = "Guy Bedford"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Guy Bedford"
+source = "https://github.com/systemjs/systemjs"
+strings = [
+  { p = "System.register", d = "SystemJS module registration", c = 0.90 },
+  { p = "System.import", d = "SystemJS dynamic import", c = 0.80 },
+  { p = "systemjs", d = "SystemJS module name", c = 0.80 },
+]
+
+[[lib]]
+name = "RequireJS"
+author = "James Burke"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "James Burke"
+source = "https://requirejs.org/"
+strings = [
+  { p = "requirejs", d = "RequireJS global", c = 0.80 },
+  { p = "define.amd", d = "AMD define marker", c = 0.85 },
+  { p = "requirejs.config", d = "RequireJS configuration", c = 0.90 },
+  { p = "Error: Script error for", d = "RequireJS error message", c = 0.95 },
+]
+
+# ─── Protocol & Serialization ──────────────────────────────────────
+
+[[lib]]
+name = "protobuf.js"
+author = "Daniel Wirtz (dcodeIO)"
+license = "BSD-3-Clause"
+family = "permissive"
+min_hits = 2
+copyright = "Daniel Wirtz"
+source = "https://github.com/protobufjs/protobuf.js"
+strings = [
+  { p = "protobuf", d = "protobuf namespace", c = 0.70 },
+  { p = "protobuf.roots", d = "protobuf root registry", c = 0.90 },
+  { p = "protobuf.Type", d = "protobuf Type class", c = 0.85 },
+  { p = "protobuf.Field", d = "protobuf Field class", c = 0.85 },
+  { p = "protobuf.Reader", d = "protobuf Reader class", c = 0.80 },
+]
+
+[[lib]]
+name = "Long.js"
+author = "Daniel Wirtz (dcodeIO)"
+license = "Apache-2.0"
+family = "permissive_notice"
+min_hits = 1
+copyright = "Daniel Wirtz"
+source = "https://github.com/dcodeIO/long.js"
+strings = [
+  { p = "dcodeIO", d = "dcodeIO namespace — author's unique identifier", c = 0.95 },
+  { p = "Long.fromBits", d = "Long.js factory method", c = 0.85 },
+  { p = "Long.fromValue", d = "Long.js factory method", c = 0.80 },
+  { p = "Long.fromString", d = "Long.js factory method", c = 0.80 },
+]
+
+# ─── Chrome Extension Specific ─────────────────────────────────────
+
+[[lib]]
+name = "webextension-polyfill"
+author = "Mozilla"
+license = "MPL-2.0"
+family = "weak_copyleft"
+min_hits = 2
+copyright = "Mozilla"
+source = "https://github.com/nicedude/webextension-polyfill"
+strings = [
+  { p = "browser-polyfill", d = "polyfill module name", c = 0.85 },
+  { p = "wrapAPIs", d = "API wrapping function", c = 0.80 },
+  { p = "settingMetadata", d = "settings metadata internal", c = 0.80 },
+  { p = "onRequestFinished", d = "WebExtension event polyfill", c = 0.80 },
+]
+
+# ─── Copyleft Libraries (Critical to Detect) ──────────────────────
+
+[[lib]]
+name = "GNU Readline.js"
+author = "Free Software Foundation"
+license = "GPL-3.0"
+family = "strong_copyleft"
+min_hits = 2
+copyright = "Free Software Foundation"
+source = "https://www.gnu.org/software/readline/"
+strings = [
+  { p = "readline", d = "readline interface", c = 0.30 },
+  { p = "rl_readline_name", d = "readline internal variable", c = 0.90 },
+  { p = "rl_completer_word_break", d = "readline completer config", c = 0.95 },
+]
+
+[[lib]]
+name = "GPL-licensed code marker"
+author = "Various"
+license = "GPL-2.0-or-later"
+family = "strong_copyleft"
+min_hits = 1
+copyright = "Free Software Foundation"
+source = "https://www.gnu.org/licenses/gpl-2.0.html"
+strings = [
+  { p = "GNU General Public License", d = "GPL license text", c = 0.95 },
+  { p = "WITHOUT ANY WARRANTY; without even the implied warranty", d = "GPL warranty disclaimer — unique text", c = 0.99 },
+  { p = "General Public License as published by the Free Software Foundation", d = "GPL header text", c = 0.99 },
+]
+
+[[lib]]
+name = "AGPL-licensed code marker"
+author = "Various"
+license = "AGPL-3.0"
+family = "strong_copyleft"
+min_hits = 1
+copyright = "Free Software Foundation"
+source = "https://www.gnu.org/licenses/agpl-3.0.html"
+strings = [
+  { p = "GNU Affero General Public License", d = "AGPL license text", c = 0.99 },
+  { p = "Affero General Public License as published by", d = "AGPL header", c = 0.99 },
+]
+
+# ─── Fuzzy Matching & NLP ───────────────────────────────────────────
+
+[[lib]]
+name = "FuzzySet.js"
+author = "Glen Chiacchieri"
+license = "Prosperity-3.0.0"
+family = "commercial_restricted"
+min_hits = 2
+copyright = "Glen Chiacchieri"
+source = "https://github.com/Glench/fuzzyset.js"
+commercial_restriction = "Prosperity Public License 3.0.0 — commercial use limited to 32-day trial without purchasing a license ($42 one-time)."
+strings = [
+  { p = "FuzzySet", d = "FuzzySet constructor", c = 0.85 },
+  { p = "gramSizeLower", d = "FuzzySet parameter — unique to this library", c = 0.95 },
+  { p = "gramSizeUpper", d = "FuzzySet parameter — unique to this library", c = 0.90 },
+  { p = "useLevenshtein", d = "Levenshtein distance toggle", c = 0.80 },
+]
+constants = [
+  { v = "\"use strict\";return function(", d = "Rollup IIFE — only in v1.0.x (Prosperity license)", c = 0.95, k = "module" },
+]
+
+# ─── Additional Critical Libraries ─────────────────────────────────
+
+[[lib]]
+name = "Ramda"
+author = "Scott Sauyet, Michael Hurley"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Scott Sauyet"
+source = "https://ramdajs.com/"
+strings = [
+  { p = "R.curry", d = "Ramda curry API", c = 0.85 },
+  { p = "R.compose", d = "Ramda compose API", c = 0.80 },
+  { p = "R.pipe", d = "Ramda pipe API", c = 0.80 },
+  { p = "R.map", d = "Ramda map API", c = 0.60 },
+  { p = "R.filter", d = "Ramda filter API", c = 0.55 },
+]
+
+[[lib]]
+name = "Handlebars"
+author = "Yehuda Katz"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Yehuda Katz"
+source = "https://handlebarsjs.com/"
+strings = [
+  { p = "Handlebars.compile", d = "template compilation", c = 0.90 },
+  { p = "Handlebars.registerHelper", d = "helper registration", c = 0.90 },
+  { p = "Handlebars.registerPartial", d = "partial registration", c = 0.90 },
+  { p = "Handlebars.SafeString", d = "safe string class", c = 0.85 },
+  { p = "Handlebars.Utils.escapeExpression", d = "HTML escape utility", c = 0.90 },
+]
+
+[[lib]]
+name = "core-js"
+author = "Denis Pushkarev (zloirock)"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Denis Pushkarev"
+source = "https://github.com/nicedude/core-js"
+strings = [
+  { p = "core-js", d = "core-js module name", c = 0.80 },
+  { p = "__core-js_shared__", d = "core-js internal shared storage — unique", c = 0.99 },
+  { p = "core-js/modules", d = "core-js module path", c = 0.90 },
+]
+
+[[lib]]
+name = "Quill"
+author = "Jason Chen, salesforce.com"
+license = "BSD-3-Clause"
+family = "permissive"
+min_hits = 2
+copyright = "Jason Chen"
+source = "https://quilljs.com/"
+strings = [
+  { p = "Quill.register", d = "Quill module registration", c = 0.90 },
+  { p = "quill-editor", d = "Quill CSS class", c = 0.80 },
+  { p = "ql-toolbar", d = "Quill toolbar class", c = 0.85 },
+  { p = "ql-editor", d = "Quill editor class", c = 0.85 },
+  { p = "Quill.import", d = "Quill module import", c = 0.90 },
+]
+
+[[lib]]
+name = "TinyMCE"
+author = "Tiny Technologies, Inc."
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Tiny Technologies"
+source = "https://www.tiny.cloud/"
+strings = [
+  { p = "tinymce", d = "TinyMCE namespace", c = 0.85 },
+  { p = "tinymce.init", d = "TinyMCE initialization", c = 0.90 },
+  { p = "tinymce.EditorManager", d = "editor manager class", c = 0.95 },
+  { p = "tinymce.activeEditor", d = "active editor reference", c = 0.85 },
+]
+
+[[lib]]
+name = "CodeMirror"
+author = "Marijn Haverbeke"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Marijn Haverbeke"
+source = "https://codemirror.net/"
+strings = [
+  { p = "CodeMirror", d = "CodeMirror namespace", c = 0.85 },
+  { p = "CodeMirror.fromTextArea", d = "textarea integration", c = 0.90 },
+  { p = "CodeMirror.defineMode", d = "mode definition", c = 0.90 },
+  { p = "CodeMirror.commands", d = "command registry", c = 0.85 },
+]
+
+# ─── Unlicensed / Weaponized Libraries (Found in Surveillance Extensions) ──
+
+[[lib]]
+name = "Joseph Myers MD5"
+author = "Joseph Myers"
+license = "UNLICENSED"
+family = "proprietary"
+min_hits = 2
+copyright = "Joseph Myers"
+source = "http://www.myersdaily.org/joseph/javascript/md5-text.html"
+commercial_restriction = "No license was ever published. Default copyright applies: all rights reserved. Any use without explicit written permission is copyright infringement."
+strings = [
+  { p = "Andy King", d = "Comment referencing Andy King's optimization advice — unique to this implementation", c = 0.99 },
+  { p = "hex_chr", d = "Hex character lookup variable name — characteristic of Myers' style", c = 0.85 },
+  { p = "md5cycle", d = "MD5 cycle function name — unique to Myers' implementation", c = 0.95 },
+  { p = "md5blk", d = "MD5 block function — unique to Myers' implementation", c = 0.95 },
+  { p = "md51", d = "MD5 main function — unique naming convention", c = 0.90 },
+]
+constants = [
+  { v = "1732584193", d = "MD5 H0 (0x67452301) — used in many MD5 impls", c = 0.70, k = "crypto" },
+  { v = "-271733879", d = "MD5 H1 as signed int — specific to Myers' implementation", c = 0.90, k = "crypto" },
+  { v = "-1732584194", d = "MD5 H2 as signed int — specific to Myers' implementation", c = 0.90, k = "crypto" },
+  { v = "271733878", d = "MD5 H3 (0x10325476)", c = 0.70, k = "crypto" },
+]
+
+[[lib]]
+name = "webrtc-ips"
+author = "Daniel Roesler"
+license = "MIT"
+family = "permissive"
+min_hits = 2
+copyright = "Daniel Roesler"
+source = "https://github.com/nicedude/webrtc-ips"
+commercial_restriction = "Originally a research demo showing WebRTC IP leaks. Securly weaponized this to geolocate students."
+strings = [
+  { p = "RTCPeerConnection", d = "WebRTC peer connection API", c = 0.50 },
+  { p = "createDataChannel", d = "WebRTC data channel creation", c = 0.60 },
+  { p = "createOffer", d = "WebRTC offer creation", c = 0.55 },
+  { p = "onicecandidate", d = "ICE candidate event handler", c = 0.65 },
+  { p = "candidate.candidate", d = "candidate SDP string access", c = 0.80 },
+  { p = "stun:stun.services.mozilla.com", d = "Mozilla STUN server — unique to webrtc-ips", c = 0.99 },
+  { p = "stun:stun.l.google.com:19302", d = "Google STUN server — common in WebRTC IP discovery", c = 0.85 },
+]
+
+[[lib]]
+name = "Go WASM Runtime"
+author = "The Go Authors"
+license = "BSD-3-Clause"
+family = "permissive"
+min_hits = 2
+copyright = "The Go Authors"
+source = "https://go.dev/"
+strings = [
+  { p = "Copyright 2018 The Go Authors", d = "Go WASM runtime copyright header", c = 0.99 },
+  { p = "wasm_exec.js", d = "Go WASM executor filename", c = 0.90 },
+  { p = "globalThis.Go", d = "Go WASM global constructor", c = 0.95 },
+  { p = "Go.prototype.run", d = "Go WASM run method", c = 0.95 },
+  { p = "gojs.syscall/js", d = "Go syscall/js package", c = 0.95 },
+  { p = "runtime.wasmExit", d = "Go WASM exit function", c = 0.90 },
+  { p = "runtime.wasmWrite", d = "Go WASM write function", c = 0.90 },
+]
+
+# ─── EdTech Surveillance Specific ──────────────────────────────────
+
+[[lib]]
+name = "Securly Extension Framework"
+author = "Securly Inc."
+license = "Proprietary"
+family = "proprietary"
+min_hits = 3
+copyright = "Securly Inc."
+source = "https://www.securly.com/"
+strings = [
+  { p = "securly", d = "Securly namespace", c = 0.85 },
+  { p = "ioObj", d = "Securly IO object — interceptor framework", c = 0.90 },
+  { p = "content10.min.js", d = "Securly dynamically injected content script", c = 0.99 },
+  { p = "securly.com", d = "Securly domain", c = 0.80 },
+  { p = "getYoutubeTitle", d = "YouTube title extraction function", c = 0.95 },
+  { p = "data-hovercard-id", d = "Google Chat user ID extraction selector", c = 0.90 },
+]
+
+[[lib]]
+name = "Lightspeed Insight Agent"
+author = "Lightspeed Systems / CatchOn"
+license = "Proprietary"
+family = "proprietary"
+min_hits = 2
+copyright = "Lightspeed Systems"
+source = "https://www.lightspeedsystems.com/"
+strings = [
+  { p = "catchon.com", d = "CatchOn/Lightspeed data endpoint domain", c = 0.95 },
+  { p = "agent.catchon.com", d = "CatchOn agent API endpoint", c = 0.99 },
+  { p = "insight-speedtest.lightspeedsystems", d = "Lightspeed speed test endpoint", c = 0.99 },
+  { p = "EntitlementKey", d = "Lightspeed entitlement key config", c = 0.90 },
+  { p = "digitalEquityURL", d = "Lightspeed digital equity (GPS tracking) config", c = 0.95 },
+  { p = "collectPII", d = "PII collection toggle — remotely configurable", c = 0.90 },
+]
